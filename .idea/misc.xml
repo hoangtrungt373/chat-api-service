@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/chat-api-common/pom.xml" />
+        <option value="$PROJECT_DIR$/chat-api-user-service/pom.xml" />
+        <option value="$PROJECT_DIR$/chat-api-chat-service/pom.xml" />
+        <option value="$PROJECT_DIR$/chat-api-friend-service/pom.xml" />
+        <option value="$PROJECT_DIR$/chat-api-group-servicee/pom.xml" />
+        <option value="$PROJECT_DIR$/chat-api-notification-service/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SaveActionSettings">
+    <option name="actions">
+      <set>
+        <option value="activate" />
+        <option value="organizeImports" />
+        <option value="reformat" />
+      </set>
+    </option>
+  </component>
+</project>
