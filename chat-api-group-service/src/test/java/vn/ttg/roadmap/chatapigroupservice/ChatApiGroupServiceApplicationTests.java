@@ -1,10 +1,10 @@
-package vn.ttg.roadmap.chatapigroupservicee;
+package vn.ttg.roadmap.chatapigroupservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ChatApiGroupServiceeApplicationTests {
+class ChatApiGroupServiceApplicationTests {
 
     @Test
     void contextLoads() {

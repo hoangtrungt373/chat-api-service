@@ -4,7 +4,9 @@
     <file url="file://$PROJECT_DIR$/chat-api-chat-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/chat-api-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/chat-api-friend-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chat-api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/chat-api-group-servicee/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/chat-api-notification-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/chat-api-user-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
   </component>

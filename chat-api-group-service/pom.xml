@@ -9,11 +9,11 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     
-    <artifactId>chat-api-friend-service</artifactId>
+    <artifactId>chat-api-group-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>chat-api-friend-service</name>
-    <description>Friend management service for Chat API - handles friend requests, relationships, and friend lists</description>
+    <name>chat-api-group-service</name>
+    <description>Group management service for Chat API - handles group creation, member management, and group settings</description>
     
     <dependencies>
         <!-- Common Module -->
@@ -37,7 +37,11 @@
         </dependency>
         
         
-        
+        <!-- File Upload for group avatars -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+        </dependency>
         
         <dependency>
             <groupId>org.testcontainers</groupId>

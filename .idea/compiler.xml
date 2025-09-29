@@ -9,18 +9,24 @@
         <module name="chat-api-common" />
         <module name="chat-api-friend-service" />
         <module name="chat-api-chat-service" />
-        <module name="chat-api-group-servicee" />
+        <module name="chat-api-gateway" />
+        <module name="chat-api-notification-service" />
         <module name="chat-api-service" />
         <module name="chat-api-user-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chat-api-group-servicee" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="chat-api-chat-service" options="-parameters" />
       <module name="chat-api-common" options="-parameters" />
       <module name="chat-api-friend-service" options="-parameters" />
+      <module name="chat-api-gateway" options="-parameters" />
       <module name="chat-api-group-servicee" options="-parameters" />
+      <module name="chat-api-notification-service" options="-parameters" />
       <module name="chat-api-service" options="-parameters" />
       <module name="chat-api-user-service" options="-parameters" />
     </option>
