@@ -5,16 +5,83 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d6acaa63-f5ed-448b-b477-7e7d5a53a076" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/ChatApiUserServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/config/RedisCacheConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/controller/AuthCallbackController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/controller/OAuth2Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/dto/CustomOAuth2User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/dto/FacebookOAuth2UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/dto/GoogleOAuth2UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/dto/OAuth2UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/dto/OAuth2UserInfoFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/entity/AbstractEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/entity/generator/TableNameSequenceGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/handler/OAuth2LoginSuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/security/JwtTokenProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/CustomOAuth2UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/StateTokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/impl/RedisStateTokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/util/DateUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/util/UserUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/resources/application-docker.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/resources/application-local.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/src/components/NavBar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/src/main.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/src/pages/Dashboard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/src/pages/Login.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/src/services/Api.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/src/services/Auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/src/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/src/types/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/tsconfig.node.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chat-app-gui/vite.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/01-extensions.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/02-schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/03-user-table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/init-database.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMMON_MODULE_DEPENDENCY_EXAMPLE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEPENDENCY_OPTIMIZATION.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DEPENDENCY_TREE_EXAMPLE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POM_INHERITANCE_EXAMPLE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application.properties.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-chat-service/src/test/java/vn/ttg/roadmap/chatapichatservice/ChatApiChatServiceApplicationTests.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chat-api-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-api-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-api-group-servicee/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-api-group-servicee/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-api-group-servicee/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-api-group-servicee/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-api-group-servicee/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-api-group-servicee/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-api-group-servicee/src/main/java/vn/ttg/roadmap/chatapigroupservicee/ChatApiGroupServiceeApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-api-group-servicee/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat-api-group-servicee/src/test/java/vn/ttg/roadmap/chatapigroupservicee/ChatApiGroupServiceeApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-common/src/test/java/vn/ttg/roadmap/chatapicommon/ChatApiCommonApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-friend-service/src/test/java/vn/ttg/roadmap/chatapifriendservice/ChatApiFriendServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-gateway/src/test/java/vn/ttg/roadmap/chatapigateway/ChatApiGatewayApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-group-service/src/test/java/vn/ttg/roadmap/chatapigroupservice/ChatApiGroupServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-notification-service/src/test/java/vn/ttg/roadmap/chatapinotificationservice/ChatApiNotificationServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-api-user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapiuserservice/ChatApiUserServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-user-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-user-service/src/test/java/vn/ttg/roadmap/chatapiuserservice/ChatApiUserServiceApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/.idea/git_toolbox_blame.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/chat-app-gui/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/chat-api-gui.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chat-app-gui/chat-app-gui.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-app-gui/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-app-gui/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/chat-app-gui/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/chat-app-gui/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,9 +90,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/chat-app-gui" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/3.5.6/spring-boot-autoconfigure-3.5.6.jar!/org/springframework/boot/autoconfigure/data/redis/RedisProperties.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-oauth2-core/6.5.5/spring-security-oauth2-core-6.5.5-sources.jar!/org/springframework/security/oauth2/core/user/OAuth2User.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/chat-app-gui/node_modules/react-router-dom/dist/index.d.ts" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
@@ -45,22 +118,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/TTG/IdeaProjects/chat-api-service",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.docker-compose.yml.postgres: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment (1).executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/TTG/IdeaProjects/chat-api-service&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\TTG\\IdeaProjects\\chat-api-service\\chat-app-gui\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -71,7 +150,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ChatApiServiceApplication">
+  <component name="RunManager" selected="npm.dev">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
@@ -127,6 +206,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ChatApiGroupServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="chat-api-group-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.ttg.roadmap.chatapigroupservice.ChatApiGroupServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ChatApiGroupServiceeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="chat-api-group-servicee" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.ttg.roadmap.chatapigroupservicee.ChatApiGroupServiceeApplication" />
@@ -148,6 +234,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ChatApiUserServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="chat-api-user-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="vn.ttg.roadmap.chatapi.userservice.ChatApiUserServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ChatApiUserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="chat-api-user-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="vn.ttg.roadmap.chatapiuserservice.ChatApiUserServiceApplication" />
@@ -164,6 +257,65 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment (1)" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="envFilePath" value="" />
+          <option name="services">
+            <list>
+              <option value="chat-api-postgres" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.postgres: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="postgres" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/chat-app-gui/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment (1)" />
+        <item itemvalue="Docker.docker-compose.yml.postgres: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -181,7 +333,19 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1758733528538</updated>
-      <workItem from="1758733535862" duration="3085000" />
+      <workItem from="1758733535862" duration="11287000" />
+      <workItem from="1759838135771" duration="7955000" />
+      <workItem from="1760416673484" duration="7323000" />
+      <workItem from="1761126627586" duration="1247000" />
+      <workItem from="1763955910748" duration="608000" />
+      <workItem from="1764071574974" duration="1957000" />
+      <workItem from="1765366532830" duration="673000" />
+      <workItem from="1765378302526" duration="6208000" />
+      <workItem from="1765791443488" duration="598000" />
+      <workItem from="1766500739548" duration="578000" />
+      <workItem from="1767605019042" duration="1157000" />
+      <workItem from="1768222545107" duration="4369000" />
+      <workItem from="1768537733486" duration="645000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -191,17 +355,26 @@
       <option name="project" value="LOCAL" />
       <updated>1758789443558</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="init">
+      <option name="closed" value="true" />
+      <created>1759144763025</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1759144763025</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <option name="LAST_COMMIT_MESSAGE" value="init" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

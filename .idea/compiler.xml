@@ -6,12 +6,22 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="chat-api-common" />
+      </profile>
+      <profile name="Annotation profile for Chat Api Service - Parent" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.5.Final/mapstruct-1.5.5.Final.jar" />
+        </processorPath>
         <module name="chat-api-friend-service" />
+        <module name="chat-api-common" />
         <module name="chat-api-chat-service" />
         <module name="chat-api-gateway" />
         <module name="chat-api-notification-service" />
-        <module name="chat-api-service" />
+        <module name="chat-api-group-service" />
         <module name="chat-api-user-service" />
       </profile>
     </annotationProcessing>
@@ -25,9 +35,10 @@
       <module name="chat-api-common" options="-parameters" />
       <module name="chat-api-friend-service" options="-parameters" />
       <module name="chat-api-gateway" options="-parameters" />
+      <module name="chat-api-group-service" options="-parameters" />
       <module name="chat-api-group-servicee" options="-parameters" />
       <module name="chat-api-notification-service" options="-parameters" />
-      <module name="chat-api-service" options="-parameters" />
+      <module name="chat-api-service" options="" />
       <module name="chat-api-user-service" options="-parameters" />
     </option>
   </component>
