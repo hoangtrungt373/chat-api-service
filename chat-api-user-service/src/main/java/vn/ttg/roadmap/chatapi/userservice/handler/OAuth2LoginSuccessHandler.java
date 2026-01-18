@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 import vn.ttg.roadmap.chatapi.userservice.dto.CustomOAuth2User;
@@ -53,8 +55,12 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         
         log.info("OAuth2 login successful for user: {}", authentication.getName());
         
-        CustomOAuth2User oAuth2User = (CustomOAuth2User) authentication.getPrincipal();
-        String email = oAuth2User.getEmail();
+        String email = extractEmail(authentication.getPrincipal());
+        if (email == null || email.trim().isEmpty()) {
+            log.error("Email not found in OAuth2/OIDC principal");
+            response.sendRedirect(frontendUrl + "/login?error=email_not_found");
+            return;
+        }
         
         User user = userService.findByEmail(email);
         if (user == null) {
@@ -90,6 +96,29 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         
         // Redirect to frontend with state token only (no sensitive data)
         response.sendRedirect(frontendUrl + "/auth/callback?state=" + stateToken);
+    }
+
+    private String extractEmail(Object principal) {
+        if (principal instanceof CustomOAuth2User customOAuth2User) {
+            return customOAuth2User.getEmail();
+        }
+        if (principal instanceof OidcUser oidcUser) {
+            // Preferred OIDC accessor
+            String email = oidcUser.getEmail();
+            if (email == null || email.trim().isEmpty()) {
+                // Fallback to claim
+                email = oidcUser.getIdToken() != null ? oidcUser.getIdToken().getClaimAsString("email") : null;
+            }
+            if ((email == null || email.trim().isEmpty()) && oidcUser.getUserInfo() != null) {
+                email = oidcUser.getUserInfo().getEmail();
+            }
+            return email;
+        }
+        if (principal instanceof OAuth2User oAuth2User) {
+            Object emailObj = oAuth2User.getAttributes().get("email");
+            return emailObj != null ? emailObj.toString() : null;
+        }
+        return null;
     }
 }
 

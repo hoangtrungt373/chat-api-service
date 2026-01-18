@@ -28,7 +28,7 @@ public class UserService {
                 .userUuid(UUID.randomUUID().toString())  // Generate USER_UUID
                 .username(generateUsername(userInfo.getName()))
                 .email(userInfo.getEmail())
-                .password(null)  // OAuth2 users don't have password
+                .password(passwordEncoder.encode("temp"))  // OAuth2 users don't have password
                 .firstName(extractFirstName(userInfo.getName()))
                 .lastName(extractLastName(userInfo.getName()))
                 .profilePicture(userInfo.getImageUrl())

@@ -8,6 +8,9 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import lombok.Getter;
+import lombok.Setter;
 import vn.ttg.roadmap.chatapi.userservice.entity.generator.TableNameSequenceGenerator;
 import vn.ttg.roadmap.chatapi.userservice.util.DateUtils;
 import vn.ttg.roadmap.chatapi.userservice.util.UserUtils;
@@ -32,20 +35,18 @@ import java.time.Instant;
 @MappedSuperclass
 @Data
 public abstract class AbstractEntity {
-    
+
     @Id
+    @GeneratedValue(generator = "sequence_generator")
     @GenericGenerator(
-        name = "sequence_generator",
-        type = TableNameSequenceGenerator.class,
-        parameters = {
-            @Parameter(name = "schema", value = "product"),
-            @Parameter(name = "allocation_size", value = "50")
-        }
+            name = "sequence_generator",
+            type = TableNameSequenceGenerator.class
     )
-    @GeneratedValue(generator = "sequence_generator", strategy = GenerationType.SEQUENCE)
-    @NotNull
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    @Column(updatable = false, nullable = false)
+    @Getter
+    @Setter
+    @Access(AccessType.PROPERTY)
+    protected Integer id;
 
     @NotNull
     @Size(max = 128)

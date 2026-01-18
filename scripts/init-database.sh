@@ -8,8 +8,9 @@ set -e
 echo "Initializing chat_premier database..."
 
 # Grant privileges to the postgres user for the main database
+# Note: Database name must be quoted if it contains hyphens or special characters
 psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
-    GRANT ALL PRIVILEGES ON DATABASE $POSTGRES_DB TO $POSTGRES_USER;
+    GRANT ALL PRIVILEGES ON DATABASE "$POSTGRES_DB" TO $POSTGRES_USER;
 EOSQL
 
 # Note: All .sql files in /docker-entrypoint-initdb.d/ are automatically executed

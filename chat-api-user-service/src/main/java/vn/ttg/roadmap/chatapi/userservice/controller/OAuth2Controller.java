@@ -13,6 +13,8 @@ import vn.ttg.roadmap.chatapi.userservice.security.JwtTokenProvider;
 import vn.ttg.roadmap.chatapi.userservice.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Optional;
 
 @RestController
@@ -23,6 +25,21 @@ public class OAuth2Controller {
     
     private final UserService userService;
     private final JwtTokenProvider jwtTokenProvider;
+    
+    /**
+     * Redirect endpoint for OAuth2 authorization
+     * Maps /api/v1/auth/oauth2/authorization/{provider} to Spring Security's /oauth2/authorization/{provider}
+     * 
+     * @param provider OAuth2 provider name (google, facebook)
+     * @param response HTTP response to redirect
+     * @throws IOException if redirect fails
+     */
+    @GetMapping("/oauth2/authorization/{provider}")
+    public void oauth2Authorization(@PathVariable String provider, HttpServletResponse response) throws IOException {
+        log.info("Redirecting OAuth2 authorization request for provider: {}", provider);
+        // Redirect to Spring Security's OAuth2 authorization endpoint
+        response.sendRedirect("/oauth2/authorization/" + provider);
+    }
     
     @GetMapping("/user")
     public ResponseEntity<UserInfo> getCurrentUser(@AuthenticationPrincipal CustomOAuth2User principal) {
@@ -77,7 +94,7 @@ public class OAuth2Controller {
         try {
             Optional<User> user = userService.findByUserUuidOptional(userUuid);
             
-            if (user.isEmpty()) {
+            if (!user.isPresent()) {
                 return ResponseEntity.notFound().build();
             }
             

@@ -1,6 +1,5 @@
 package vn.ttg.roadmap.chatapi.userservice.config;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -8,11 +7,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+import lombok.RequiredArgsConstructor;
 import vn.ttg.roadmap.chatapi.userservice.handler.OAuth2LoginSuccessHandler;
 import vn.ttg.roadmap.chatapi.userservice.service.CustomOAuth2UserService;
+import vn.ttg.roadmap.chatapi.userservice.service.CustomOidcUserService;
 
 @Configuration
 @EnableWebSecurity
@@ -21,6 +21,7 @@ import vn.ttg.roadmap.chatapi.userservice.service.CustomOAuth2UserService;
 public class SecurityConfig {
     
     private final CustomOAuth2UserService customOAuth2UserService;
+    private final CustomOidcUserService customOidcUserService;
     private final OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
     
     @Bean
@@ -33,9 +34,9 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
             )
             .oauth2Login(oauth2 -> oauth2
-                .loginPage("/login")
                 .userInfoEndpoint(userInfo -> userInfo
-                    .userService(customOAuth2UserService)
+                    .userService(customOAuth2UserService) // OAuth2 providers (e.g. Facebook)
+                    .oidcUserService(customOidcUserService) // OIDC providers (e.g. Google)
                 )
                 .successHandler(oAuth2LoginSuccessHandler)
             )
@@ -48,10 +49,5 @@ public class SecurityConfig {
             );
         
         return http.build();
-    }
-    
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
     }
 }

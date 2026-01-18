@@ -28,6 +28,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     boolean existsByUserUuid(String userUuid);
     
     @Modifying
-    @Query("UPDATE User u SET u.status = :status WHERE u.userId = :userId")
+    @Query("UPDATE User u SET u.status = :status WHERE u.id = :userId")
     void updateStatus(@Param("userId") Integer userId, @Param("status") User.UserStatus status);
 }

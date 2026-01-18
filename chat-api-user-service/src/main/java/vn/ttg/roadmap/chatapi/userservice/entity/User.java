@@ -58,7 +58,6 @@ public class User extends AbstractEntity {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Size(max = 50)
     @Column(name = "PROVIDER", length = 50)
     @Builder.Default
     private Provider provider = Provider.LOCAL;
@@ -74,7 +73,6 @@ public class User extends AbstractEntity {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    @Size(max = 50)
     @Column(name = "STATUS", length = 50)
     @Builder.Default
     private UserStatus status = UserStatus.OFFLINE;
