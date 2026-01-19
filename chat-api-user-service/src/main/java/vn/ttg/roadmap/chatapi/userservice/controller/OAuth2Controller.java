@@ -27,8 +27,29 @@ public class OAuth2Controller {
     private final JwtTokenProvider jwtTokenProvider;
     
     /**
-     * Redirect endpoint for OAuth2 authorization
-     * Maps /api/v1/auth/oauth2/authorization/{provider} to Spring Security's /oauth2/authorization/{provider}
+     * Redirect endpoint for OAuth2 authorization initiation.
+     * 
+     * <h3>Purpose:</h3>
+     * Provides a consistent API path for frontend to initiate OAuth2 login,
+     * then redirects to Spring Security's internal OAuth2 endpoint.
+     * 
+     * <h3>Flow:</h3>
+     * <ol>
+     *   <li>Frontend calls: GET /api/v1/auth/oauth2/authorization/google</li>
+     *   <li>This endpoint redirects to: GET /oauth2/authorization/google</li>
+     *   <li>Spring Security handles: Builds authorization URL and redirects to Google</li>
+     * </ol>
+     * 
+     * <h3>Why This Endpoint Exists:</h3>
+     * <ul>
+     *   <li>Frontend uses consistent API path: /api/v1/auth/...</li>
+     *   <li>Spring Security uses internal path: /oauth2/authorization/...</li>
+     *   <li>This endpoint bridges the gap (no CORS check - it's navigation)</li>
+     * </ul>
+     * 
+     * <h3>Note:</h3>
+     * This is a browser navigation (window.location.href), not a JavaScript API call,
+     * so CORS does not apply here. The browser automatically follows the redirect.
      * 
      * @param provider OAuth2 provider name (google, facebook)
      * @param response HTTP response to redirect
@@ -38,6 +59,9 @@ public class OAuth2Controller {
     public void oauth2Authorization(@PathVariable String provider, HttpServletResponse response) throws IOException {
         log.info("Redirecting OAuth2 authorization request for provider: {}", provider);
         // Redirect to Spring Security's OAuth2 authorization endpoint
+        // Spring Security will then:
+        // 1. Build authorization URL with client_id, redirect_uri, scope, etc.
+        // 2. Redirect user to OAuth2 provider (Google/Facebook)
         response.sendRedirect("/oauth2/authorization/" + provider);
     }
     

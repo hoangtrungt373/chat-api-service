@@ -4,32 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6acaa63-f5ed-448b-b477-7e7d5a53a076" name="Changes" comment="init">
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/ChatApiUserServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/config/RedisCacheConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/controller/AuthCallbackController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/controller/OAuth2Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/dto/CustomOAuth2User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/dto/FacebookOAuth2UserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/dto/GoogleOAuth2UserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/dto/OAuth2UserInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/dto/OAuth2UserInfoFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/entity/AbstractEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/entity/generator/TableNameSequenceGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/handler/OAuth2LoginSuccessHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/security/JwtTokenProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/CustomOAuth2UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/StateTokenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/impl/RedisStateTokenService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/util/DateUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/util/UserUtils.java" afterDir="false" />
+    <list default="true" id="d6acaa63-f5ed-448b-b477-7e7d5a53a076" name="Changes" comment="implement CustomOidcUserService case google login">
+      <change beforePath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/controller/AuthCallbackController.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/controller/AuthCallbackController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/controller/OAuth2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/controller/OAuth2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/handler/OAuth2LoginSuccessHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/handler/OAuth2LoginSuccessHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/CustomOAuth2UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/CustomOAuth2UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/CustomOidcUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/java/vn/ttg/roadmap/chatapi/userservice/service/CustomOidcUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat-app-gui/src/services/Api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/chat-app-gui/src/services/Api.ts" afterDir="false" />
+    </list>
+    <list id="7d4c9a2c-bdaa-49c1-b8b0-6561fa3d5682" name="local" comment="">
       <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/resources/application-docker.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/chat-api-user-service/src/main/resources/application-local.yml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/chat-app-gui/index.html" afterDir="false" />
@@ -371,7 +355,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
-    <option name="LAST_COMMIT_MESSAGE" value="init" />
+    <MESSAGE value="add redis store token" />
+    <MESSAGE value="implement CustomOidcUserService case google login" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement CustomOidcUserService case google login" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

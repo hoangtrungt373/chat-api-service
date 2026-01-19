@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vn.ttg.roadmap.chatapi.userservice.service.StateTokenService;
 
+import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -32,7 +33,7 @@ public class AuthCallbackController {
         String stateToken = request.get("state");
         
         if (stateToken == null || stateToken.isEmpty()) {
-            return ResponseEntity.badRequest().body(Map.of("error", "State token is required"));
+            return ResponseEntity.badRequest().body(Collections.singletonMap("error", "State token is required"));
         }
         
         // Retrieve tokens from cache/storage
@@ -40,7 +41,7 @@ public class AuthCallbackController {
         
         if (tokenData == null) {
             log.warn("Invalid or expired state token: {}", stateToken);
-            return ResponseEntity.status(401).body(Map.of("error", "Invalid or expired state token"));
+            return ResponseEntity.status(401).body(Collections.singletonMap("error", "Invalid or expired state token"));
         }
         
         // Delete state token (one-time use)
