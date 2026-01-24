@@ -1,18 +1,30 @@
-package vn.ttg.roadmap.chatapi.userservice.util;
+package vn.ttg.roadmap.chatapi.common.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.oauth2.jwt.Jwt;
-import vn.ttg.roadmap.chatapi.userservice.dto.CustomOAuth2User;
 
 /**
- * Utility class for getting current user information from Spring Security context
+ * Utility class for getting current user information from Spring Security context.
+ * 
+ * <p>This utility is designed to be used across all services and supports
+ * multiple authentication types:</p>
+ * <ul>
+ *   <li>OAuth2User (OAuth2 login)</li>
+ *   <li>JWT token (JWT authentication)</li>
+ *   <li>String principal (username)</li>
+ * </ul>
  */
 @Slf4j
-public class UserUtils {
+public final class UserUtils {
     
     private static final String DEFAULT_USER = "system";
+    
+    private UserUtils() {
+        // Utility class - prevent instantiation
+    }
     
     /**
      * Get the current username from Spring Security context
@@ -29,17 +41,26 @@ public class UserUtils {
             
             Object principal = authentication.getPrincipal();
             
-            // Handle CustomOAuth2User (OAuth2 login)
-            if (principal instanceof CustomOAuth2User) {
-                CustomOAuth2User oAuth2User = (CustomOAuth2User) principal;
-                return oAuth2User.getName() != null ? oAuth2User.getName() : oAuth2User.getEmail();
+            // Handle OAuth2User (OAuth2 login)
+            if (principal instanceof OAuth2User) {
+                OAuth2User oAuth2User = (OAuth2User) principal;
+                // Try common attributes for name
+                String name = oAuth2User.getAttribute("name");
+                if (name != null && !name.trim().isEmpty()) {
+                    return name;
+                }
+                String email = oAuth2User.getAttribute("email");
+                if (email != null && !email.trim().isEmpty()) {
+                    return email;
+                }
+                return oAuth2User.getName();
             }
             
             // Handle JWT token (JWT authentication)
             if (principal instanceof Jwt) {
                 Jwt jwt = (Jwt) principal;
                 String username = jwt.getClaimAsString("username");
-                if (username != null) {
+                if (username != null && !username.trim().isEmpty()) {
                     return username;
                 }
                 // Fallback to subject (email)
@@ -76,10 +97,10 @@ public class UserUtils {
             
             Object principal = authentication.getPrincipal();
             
-            // Handle CustomOAuth2User (OAuth2 login)
-            if (principal instanceof CustomOAuth2User) {
-                CustomOAuth2User oAuth2User = (CustomOAuth2User) principal;
-                return oAuth2User.getEmail();
+            // Handle OAuth2User (OAuth2 login)
+            if (principal instanceof OAuth2User) {
+                OAuth2User oAuth2User = (OAuth2User) principal;
+                return oAuth2User.getAttribute("email");
             }
             
             // Handle JWT token (JWT authentication)
@@ -102,9 +123,9 @@ public class UserUtils {
     }
     
     /**
-     * Get the current user ID (USER_UUID) from Spring Security context
+     * Get the current user ID from Spring Security context
      * 
-     * @return user UUID if available, otherwise null
+     * @return user ID if available, otherwise null
      */
     public static String getUserId() {
         try {
@@ -116,10 +137,19 @@ public class UserUtils {
             
             Object principal = authentication.getPrincipal();
             
-            // Handle CustomOAuth2User (OAuth2 login)
-            if (principal instanceof CustomOAuth2User) {
-                CustomOAuth2User oAuth2User = (CustomOAuth2User) principal;
-                return oAuth2User.getId();
+            // Handle OAuth2User (OAuth2 login)
+            if (principal instanceof OAuth2User) {
+                OAuth2User oAuth2User = (OAuth2User) principal;
+                // Try common ID attributes
+                Object id = oAuth2User.getAttribute("id");
+                if (id != null) {
+                    return id.toString();
+                }
+                Object sub = oAuth2User.getAttribute("sub");
+                if (sub != null) {
+                    return sub.toString();
+                }
+                return oAuth2User.getName();
             }
             
             // Handle JWT token (JWT authentication)
@@ -151,4 +181,3 @@ public class UserUtils {
         }
     }
 }
-

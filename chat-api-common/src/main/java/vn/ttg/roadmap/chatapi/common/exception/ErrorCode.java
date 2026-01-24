@@ -1,4 +1,4 @@
-package vn.ttg.roadmap.chatapi.userservice.exception;
+package vn.ttg.roadmap.chatapi.common.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
@@ -30,6 +30,13 @@ public enum ErrorCode {
     USER_ALREADY_EXISTS("USER_002", "User already exists", HttpStatus.CONFLICT),
     USER_EMAIL_INVALID("USER_003", "Invalid email format", HttpStatus.BAD_REQUEST),
     USER_INVALID_STATUS("USER_004", "Invalid user status", HttpStatus.BAD_REQUEST),
+    
+    // Friend Errors (FRIEND_*)
+    FRIEND_REQUEST_NOT_FOUND("FRIEND_001", "Friend request not found", HttpStatus.NOT_FOUND),
+    FRIEND_REQUEST_ALREADY_EXISTS("FRIEND_002", "Friend request already exists", HttpStatus.CONFLICT),
+    FRIEND_ALREADY_EXISTS("FRIEND_003", "Already friends with this user", HttpStatus.CONFLICT),
+    FRIEND_NOT_FOUND("FRIEND_004", "Friend not found", HttpStatus.NOT_FOUND),
+    FRIEND_SELF_REQUEST("FRIEND_005", "Cannot send friend request to yourself", HttpStatus.BAD_REQUEST),
     
     // Validation Errors (VALIDATION_*)
     VALIDATION_FAILED("VALIDATION_001", "Validation failed", HttpStatus.BAD_REQUEST),

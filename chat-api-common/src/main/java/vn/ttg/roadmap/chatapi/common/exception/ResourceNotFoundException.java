@@ -1,4 +1,4 @@
-package vn.ttg.roadmap.chatapi.userservice.exception;
+package vn.ttg.roadmap.chatapi.common.exception;
 
 /**
  * Resource not found exception

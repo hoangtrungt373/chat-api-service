@@ -1,4 +1,4 @@
-package vn.ttg.roadmap.chatapi.userservice.util;
+package vn.ttg.roadmap.chatapi.common.util;
 
 import java.time.Instant;
 import java.time.ZoneId;
@@ -7,7 +7,11 @@ import java.time.ZonedDateTime;
 /**
  * Utility class for date and time operations
  */
-public class DateUtils {
+public final class DateUtils {
+    
+    private DateUtils() {
+        // Utility class - prevent instantiation
+    }
     
     /**
      * Get current date and time as Instant (UTC)
@@ -46,4 +50,3 @@ public class DateUtils {
         return ZonedDateTime.now(ZoneId.of("UTC"));
     }
 }
-

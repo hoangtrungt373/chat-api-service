@@ -1,4 +1,4 @@
-package vn.ttg.roadmap.chatapi.userservice.dto;
+package vn.ttg.roadmap.chatapi.common.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

@@ -1,19 +1,25 @@
-package vn.ttg.roadmap.chatapi.userservice.entity;
+package vn.ttg.roadmap.chatapi.common.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Access;
+import jakarta.persistence.AccessType;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
+import jakarta.persistence.Version;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Parameter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
 import lombok.Getter;
 import lombok.Setter;
-import vn.ttg.roadmap.chatapi.userservice.entity.generator.TableNameSequenceGenerator;
-import vn.ttg.roadmap.chatapi.userservice.util.DateUtils;
-import vn.ttg.roadmap.chatapi.userservice.util.UserUtils;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
+import vn.ttg.roadmap.chatapi.common.entity.generator.TableNameSequenceGenerator;
+import vn.ttg.roadmap.chatapi.common.util.DateUtils;
+import vn.ttg.roadmap.chatapi.common.util.UserUtils;
 
 import java.time.Instant;
 

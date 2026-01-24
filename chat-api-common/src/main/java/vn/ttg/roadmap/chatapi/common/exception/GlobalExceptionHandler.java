@@ -1,4 +1,4 @@
-package vn.ttg.roadmap.chatapi.userservice.exception;
+package vn.ttg.roadmap.chatapi.common.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolation;
@@ -15,13 +15,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.NoHandlerFoundException;
-import vn.ttg.roadmap.chatapi.userservice.dto.ErrorResponse;
+import vn.ttg.roadmap.chatapi.common.dto.ErrorResponse;
 
 import java.time.Instant;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * Global Exception Handler

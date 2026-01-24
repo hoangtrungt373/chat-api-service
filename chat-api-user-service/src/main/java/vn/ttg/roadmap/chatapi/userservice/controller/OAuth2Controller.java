@@ -9,9 +9,9 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import vn.ttg.roadmap.chatapi.userservice.dto.CustomOAuth2User;
 import vn.ttg.roadmap.chatapi.userservice.entity.User;
-import vn.ttg.roadmap.chatapi.userservice.exception.ApiException;
-import vn.ttg.roadmap.chatapi.userservice.exception.ErrorCode;
-import vn.ttg.roadmap.chatapi.userservice.exception.ResourceNotFoundException;
+import vn.ttg.roadmap.chatapi.common.exception.ApiException;
+import vn.ttg.roadmap.chatapi.common.exception.ErrorCode;
+import vn.ttg.roadmap.chatapi.common.exception.ResourceNotFoundException;
 import vn.ttg.roadmap.chatapi.userservice.security.JwtTokenProvider;
 import vn.ttg.roadmap.chatapi.userservice.service.UserService;
 

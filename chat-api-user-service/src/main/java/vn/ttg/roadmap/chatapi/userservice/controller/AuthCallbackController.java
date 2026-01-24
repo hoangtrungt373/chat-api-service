@@ -6,8 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import vn.ttg.roadmap.chatapi.userservice.exception.ApiException;
-import vn.ttg.roadmap.chatapi.userservice.exception.ErrorCode;
+import vn.ttg.roadmap.chatapi.common.exception.ApiException;
+import vn.ttg.roadmap.chatapi.common.exception.ErrorCode;
 import vn.ttg.roadmap.chatapi.userservice.service.StateTokenService;
 
 import java.util.Map;

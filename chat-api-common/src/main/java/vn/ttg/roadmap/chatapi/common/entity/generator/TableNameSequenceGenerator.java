@@ -1,4 +1,4 @@
-package vn.ttg.roadmap.chatapi.userservice.entity.generator;
+package vn.ttg.roadmap.chatapi.common.entity.generator;
 
 import java.util.Properties;
 
@@ -19,7 +19,30 @@ import org.hibernate.type.Type;
 
 import jakarta.persistence.Table;
 
-
+/**
+ * Custom Hibernate sequence generator that generates sequence names based on table name.
+ * 
+ * <p>This generator automatically creates sequence names in the format: SCHEMA.TABLE_NAME_SEQ</p>
+ * 
+ * <h3>Features:</h3>
+ * <ul>
+ *   <li>Automatically derives sequence name from entity's @Table annotation</li>
+ *   <li>Supports schema qualification (e.g., product.USER_SEQ)</li>
+ *   <li>Uses pooled-lo optimizer for efficient ID allocation</li>
+ *   <li>Allows override via @GenericGenerator parameters</li>
+ * </ul>
+ * 
+ * <h3>Usage:</h3>
+ * <pre>
+ * &#64;Entity
+ * &#64;Table(name = "USER", schema = "product")
+ * public class User extends AbstractEntity {
+ *     // Automatically uses: product.USER_SEQ
+ * }
+ * </pre>
+ * 
+ * @author ttg
+ */
 public class TableNameSequenceGenerator extends SequenceStyleGenerator {
 
     private static final String ENTITY_TYPE_CLASS = "entity-type-class";

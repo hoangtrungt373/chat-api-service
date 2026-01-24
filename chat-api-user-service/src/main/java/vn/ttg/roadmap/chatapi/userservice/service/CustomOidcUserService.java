@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import vn.ttg.roadmap.chatapi.userservice.dto.OAuth2UserInfo;
 import vn.ttg.roadmap.chatapi.userservice.dto.OAuth2UserInfoFactory;
 import vn.ttg.roadmap.chatapi.userservice.entity.User;
-import vn.ttg.roadmap.chatapi.userservice.handler.OAuth2LoginSuccessHandler;
 
 /**
  * Custom OIDC User Service for handling Google OAuth2/OIDC logins.

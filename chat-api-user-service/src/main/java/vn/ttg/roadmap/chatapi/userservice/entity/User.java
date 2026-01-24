@@ -8,6 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import vn.ttg.roadmap.chatapi.common.entity.AbstractEntity;
 
 /**
  * User entity with automatic sequence generation.
