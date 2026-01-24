@@ -6,9 +6,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vn.ttg.roadmap.chatapi.userservice.exception.ApiException;
+import vn.ttg.roadmap.chatapi.userservice.exception.ErrorCode;
 import vn.ttg.roadmap.chatapi.userservice.service.StateTokenService;
 
-import java.util.Collections;
 import java.util.Map;
 
 /**
@@ -29,11 +30,11 @@ public class AuthCallbackController {
     private final StateTokenService stateTokenService;
     
     @PostMapping("/exchange-state")
-    public ResponseEntity<?> exchangeStateToken(@RequestBody Map<String, String> request) {
+    public ResponseEntity<AuthTokensResponse> exchangeStateToken(@RequestBody Map<String, String> request) {
         String stateToken = request.get("state");
         
         if (stateToken == null || stateToken.isEmpty()) {
-            return ResponseEntity.badRequest().body(Collections.singletonMap("error", "State token is required"));
+            throw new ApiException(ErrorCode.OAUTH_STATE_TOKEN_MISSING);
         }
         
         // Retrieve tokens from cache/storage
@@ -41,7 +42,7 @@ public class AuthCallbackController {
         
         if (tokenData == null) {
             log.warn("Invalid or expired state token: {}", stateToken);
-            return ResponseEntity.status(401).body(Collections.singletonMap("error", "Invalid or expired state token"));
+            throw new ApiException(ErrorCode.OAUTH_STATE_TOKEN_INVALID);
         }
         
         // Delete state token (one-time use)

@@ -9,13 +9,15 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 import vn.ttg.roadmap.chatapi.userservice.dto.CustomOAuth2User;
 import vn.ttg.roadmap.chatapi.userservice.entity.User;
+import vn.ttg.roadmap.chatapi.userservice.exception.ApiException;
+import vn.ttg.roadmap.chatapi.userservice.exception.ErrorCode;
+import vn.ttg.roadmap.chatapi.userservice.exception.ResourceNotFoundException;
 import vn.ttg.roadmap.chatapi.userservice.security.JwtTokenProvider;
 import vn.ttg.roadmap.chatapi.userservice.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -68,12 +70,12 @@ public class OAuth2Controller {
     @GetMapping("/user")
     public ResponseEntity<UserInfo> getCurrentUser(@AuthenticationPrincipal CustomOAuth2User principal) {
         if (principal == null) {
-            return ResponseEntity.status(401).build();
+            throw new ApiException(ErrorCode.AUTH_UNAUTHORIZED, "Authentication required");
         }
         
         User user = userService.findByEmail(principal.getEmail());
         if (user == null) {
-            return ResponseEntity.status(404).build();
+            throw new ResourceNotFoundException("User", principal.getEmail());
         }
         
         UserInfo userInfo = UserInfo.builder()
@@ -104,45 +106,43 @@ public class OAuth2Controller {
     
     @PostMapping("/refresh")
     public ResponseEntity<TokenResponse> refreshToken(@RequestBody RefreshTokenRequest request) {
+        if (request.getRefreshToken() == null || request.getRefreshToken().isEmpty()) {
+            throw new ApiException(ErrorCode.AUTH_TOKEN_MISSING, "Refresh token is required");
+        }
+        
         try {
             String newToken = jwtTokenProvider.refreshToken(request.getRefreshToken());
             return ResponseEntity.ok(new TokenResponse(newToken));
+        } catch (IllegalArgumentException e) {
+            log.error("Token refresh failed: {}", e.getMessage());
+            throw new ApiException(ErrorCode.AUTH_TOKEN_INVALID, "Invalid refresh token");
         } catch (Exception e) {
             log.error("Token refresh failed", e);
-            return ResponseEntity.status(401).build();
+            throw new ApiException(ErrorCode.AUTH_TOKEN_INVALID, "Token refresh failed");
         }
     }
     
     @GetMapping("/user/{userUuid}")
     public ResponseEntity<UserInfo> getUserByUuid(@PathVariable String userUuid) {
-        try {
-            Optional<User> user = userService.findByUserUuidOptional(userUuid);
-            
-            if (!user.isPresent()) {
-                return ResponseEntity.notFound().build();
-            }
-            
-            User userEntity = user.get();
-            UserInfo userInfo = UserInfo.builder()
-                    .id(userEntity.getUserUuid())  // Use USER_UUID for external identification
-                    .userId(userEntity.getId())  // Include internal USER_ID if needed
-                    .username(userEntity.getUsername())
-                    .email(userEntity.getEmail())
-                    .firstName(userEntity.getFirstName())
-                    .lastName(userEntity.getLastName())
-                    .profilePicture(userEntity.getProfilePicture())
-                    .provider(userEntity.getProvider().name())
-                    .emailVerified(userEntity.getEmailVerified())
-                    .status(userEntity.getStatus().name())
-                    .createdAt(userEntity.getDteCreation())
-                    .lastModified(userEntity.getDteLastModification())
-                    .build();
-            
-            return ResponseEntity.ok(userInfo);
-        } catch (Exception e) {
-            log.error("Error retrieving user with UUID: {}", userUuid, e);
-            return ResponseEntity.badRequest().build();
-        }
+        User user = userService.findByUserUuidOptional(userUuid)
+                .orElseThrow(() -> new ResourceNotFoundException("User", userUuid));
+        
+        UserInfo userInfo = UserInfo.builder()
+                .id(user.getUserUuid())  // Use USER_UUID for external identification
+                .userId(user.getId())  // Include internal USER_ID if needed
+                .username(user.getUsername())
+                .email(user.getEmail())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .profilePicture(user.getProfilePicture())
+                .provider(user.getProvider().name())
+                .emailVerified(user.getEmailVerified())
+                .status(user.getStatus().name())
+                .createdAt(user.getDteCreation())
+                .lastModified(user.getDteLastModification())
+                .build();
+        
+        return ResponseEntity.ok(userInfo);
     }
     
     @Data
