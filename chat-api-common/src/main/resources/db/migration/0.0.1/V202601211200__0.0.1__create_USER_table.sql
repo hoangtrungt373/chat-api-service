@@ -1,3 +1,7 @@
+-- Author: TTG
+-- Description: Create USER table
+------------------------------------------------------------------------------------------------------------------------
+
 CREATE SEQUENCE IF NOT EXISTS product.USER_SEQ
     START WITH 1
     INCREMENT BY 50
@@ -5,7 +9,7 @@ CREATE SEQUENCE IF NOT EXISTS product.USER_SEQ
     NO CYCLE;
 
 CREATE TABLE IF NOT EXISTS product.USER (
-    USER_ID                 INTEGER                         NOT NULL     PRIMARY KEY,
+    USER_ID                 INTEGER                         NOT NULL,
     USER_UUID               VARCHAR(36)                     NOT NULL,
     EMAIL                   VARCHAR(255)                    NOT NULL,
     USERNAME                VARCHAR(255)                    NOT NULL,
@@ -23,16 +27,19 @@ CREATE TABLE IF NOT EXISTS product.USER (
     USR_LAST_MODIFICATION   VARCHAR(128)                    NOT NULL,
     DTE_LAST_MODIFICATION   TIMESTAMP WITH TIME ZONE        NOT NULL,
     VERSION                 INTEGER                         NOT NULL,
+    
+    -- Primary Key
+    CONSTRAINT PK_USER PRIMARY KEY (USER_ID),
+    
+    CONSTRAINT UQ_USER_EMAIL UNIQUE (EMAIL),
+    CONSTRAINT UQ_USER_USERNAME UNIQUE (USERNAME),
 
+    -- Check Constraints
     CONSTRAINT CKC_USER_PROVIDER CHECK (PROVIDER IN ('LOCAL', 'GOOGLE', 'FACEBOOK')),
-
     CONSTRAINT CKC_USER_STATUS CHECK (STATUS IN ('ONLINE', 'OFFLINE', 'AWAY', 'BUSY'))
 );
 
 ALTER SEQUENCE product.USER_SEQ OWNED BY product.USER.USER_ID;
 
-CREATE INDEX IF NOT EXISTS IDX_USER_USER_UUID ON product.USER(USER_UUID);
-CREATE INDEX IF NOT EXISTS IDX_USER_EMAIL ON product.USER(EMAIL);
-CREATE INDEX IF NOT EXISTS IDX_USER_USERNAME ON product.USER(USERNAME);
-CREATE INDEX IF NOT EXISTS IDX_USER_STATUS ON product.USER(STATUS) WHERE ENABLED = TRUE;
-
+CREATE INDEX IF NOT EXISTS IDX_USER_EMAIL ON product.USER (EMAIL);
+CREATE INDEX IF NOT EXISTS IDX_USER_USERNAME ON product.USER (USERNAME);
